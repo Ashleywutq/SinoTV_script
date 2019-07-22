@@ -8,7 +8,7 @@ https://helpx.adobe.com/download-install/kb/creative-cloud-apps-download.html
 3. pip install requests and bs4
 4.download script from above
 
-How to use:
+How to use ticker+weather:
 
 0. when making ticker file, use the template and remember to change date,make sure there is one space between “title:????” and “contents”
 1. double click fetch_weather, this will generate weather info for today, wait for completion
