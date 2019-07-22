@@ -17,3 +17,11 @@ How to use ticker+weather:
 4. change ticker, make sure done alert shows up, change font if needed
 5. change weather, make sure done alert shows up, change manually if alert shows up
 6. check 2 cities for weather, I'm using weather.com 10 day forcast
+
+How to use ending_weather:
+1. double click changeendingweather, this will generate weather for today in a txt file, wait for completion
+2. open weather_auto
+3. open script->run script file->ending_weather_script (make sure you choose the right folder)
+4. change weather, make sure done alert shows up, change manually if alert shows up
+5. check 2 cities for weather, I'm using weather.com 10 day forcast
+6. feel free to msg ashley for any questions (;
