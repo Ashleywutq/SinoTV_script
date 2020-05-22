@@ -102,15 +102,28 @@ print(d3)
 filename = d3+".txt"
 file = open(filename,'w+')
 
-for n in range(44):
+n = 0
+retry = 0
+while n < 44:
 
 	page=requests.get(link[n])
 	content=page.content
-
 	soup=BeautifulSoup(content,"html.parser")
 	table=soup.find_all("table",{"class":"twc-table"})
-	items = table[0]
+	if len(table) == 0:
+		if retry <3:
+			retry+=1
+			continue
+		else:
+			retry = 0
+			file.write(name[n])
+			file.write("\n")
+			file.write("website error no weather")
+			file.write("\n")
+			file.write("website error no temperature")
+			file.write("\n")
 
+	items = table[0]
 	# #print only
 	# print(name[n])
 
@@ -142,6 +155,7 @@ for n in range(44):
 	file.write("\n")
 	
 	weather = items.find_all("td",{"class":"description"})[1].text.lower()
+	print(weather)
 	outweather = "nah"
 	if "sunny" in weather:
 		outweather = "sunny"
@@ -165,6 +179,8 @@ for n in range(44):
 	temp = re.findall(r'\d+', items.find_all("td",{"class":"temp"})[1].text)
 	file.write(str(temp[1])+'-'+str(temp[0]))	
 	file.write("\n")
+	n+=1
+	retry = 0
 
 #close file
 file.close()
